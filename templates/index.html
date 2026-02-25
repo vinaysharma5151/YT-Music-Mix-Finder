@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT Music Mix Finder</title>
+    <!-- Use Google Fonts for aesthetics -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>YT Music Mix Finder</h1>
+            <p>Generate a mix from your favorite song and download tracks instantly.</p>
+        </header>
+
+        <section class="search-box">
+            <div class="input-group">
+                <input type="text" id="songInput" placeholder="Enter a song name (e.g. Jhol)">
+            </div>
+            <div class="input-group">
+                <label for="limitInput">Number of songs:</label>
+                <input type="number" id="limitInput" value="50" min="1" max="100">
+            </div>
+            <button id="searchBtn" onclick="searchSong()">Find Mix</button>
+        </section>
+
+        <section id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Searching YouTube...</p>
+        </section>
+
+        <section id="results" class="hidden">
+            <h2 id="resultHeader">Mix for ...</h2>
+            <div id="trackList" class="track-grid">
+                <!-- Tracks will be injected here -->
+            </div>
+        </section>
+
+        <div id="notification" class="hidden"></div>
+
+        <section id="player-bar" class="player-bar hidden">
+            <div class="player-info">
+                <span id="player-title">Select a track to play</span>
+            </div>
+            <audio id="audio-player" controls></audio>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+:root {
+    --primary-color: #ff0050;
+    /* YouTube-ish red but vibrant */
+    --bg-color: #0f0f0f;
+    --card-bg: #1e1e1e;
+    --text-color: #ffffff;
+    --secondary-text: #aaaaaa;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding-bottom: 100px;
+    /* Space for player bar */
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #ff0050, #00f2ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.search-box {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background-color: #2a2a2a;
+    color: white;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: var(--primary-color);
+}
+
+button {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(90deg, #ff0050, #d00040);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.02);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Results */
+.hidden {
+    display: none !important;
+}
+
+#results {
+    margin-top: 2rem;
+}
+
+.track-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.track-card {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: 0.2s;
+}
+
+.track-card:hover {
+    background-color: #252525;
+}
+
+.track-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.track-info {
+    flex: 1;
+}
+
+.track-title {
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.track-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.track-actions button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    background: #333;
+}
+
+.track-actions button:hover {
+    background: var(--primary-color);
+}
+
+.track-actions .play-btn {
+    background: linear-gradient(90deg, #00f2ea, #00c2ba);
+    color: #000;
+}
+
+.track-actions .play-btn:hover {
+    background: #fff;
+}
+
+
+/* Spinner */
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#notification {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background-color: #333;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Player Bar */
+.player-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #181818;
+    border-top: 1px solid #333;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    box-sizing: border-box;
+}
+
+.player-info {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+#player-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+#audio-player {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .player-bar {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .player-info {
+        margin-right: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    #notification {
+        bottom: 140px;
+    }
+}
