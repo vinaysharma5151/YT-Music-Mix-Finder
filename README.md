@@ -1,4 +1,4 @@
-# YT Music Mix Finder
+# VibeFlow
 
 A sleek web application to generate a continuous music mix based on any YouTube song name. Seamlessly search for tracks and stream/download them directly.
 
