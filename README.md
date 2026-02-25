@@ -1,5 +1,5 @@
 # VibeFlow
-
+If you want to listen your favorite song with their recommendations, and if you want to download it, this might can help you.
 A sleek web application to generate a continuous music mix based on any YouTube song name. Seamlessly search for tracks and stream/download them directly.
 
 ## Features
